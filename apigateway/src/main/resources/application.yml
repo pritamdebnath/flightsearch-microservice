@@ -1,26 +1,19 @@
-spring: 
+spring:
   application:
     name: apigateway
-      
-# Define the port where the API gateway server would be running
 server:
   port: 8080
-
-# Define the Eureka server that handles service registration
 eureka:
-  client: 
-    serviceUrl: 
+  client:
+    serviceUrl:
       defaultZone: http://localhost:8761/eureka
+  instance:
     preferIpAddress: true
-
 zuul:
   routes:
-    flightsearch: 
+    flightsearch:
       path: /flightsearch/**
-      url: http://localhost:8020/flightsearch
-     
-
+      serviceId: flightsearch
 security:
-  # Disable Spring Boot basic authentication
   basic:
     enabled: false
