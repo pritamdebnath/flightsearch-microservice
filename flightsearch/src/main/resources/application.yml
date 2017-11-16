@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: flightsearch
+server:
+  port: 8020
+  contextPath: /flightsearch
+eureka:
+  client: 
+    serviceUrl: 
+      defaultZone: http://localhost:8761/eureka
+    preferIpAddress: true
+
+security: 
+  # Disable Spring Boot basic authentication
+  basic:
+    enabled: false    
