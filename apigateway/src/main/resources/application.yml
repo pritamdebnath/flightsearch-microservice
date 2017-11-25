@@ -11,9 +11,22 @@ eureka:
     preferIpAddress: true
 zuul:
   routes:
-    flightsearch:
+    uaa:
+      path: /uaa/**
+      serviceId: uaa
+      sensitiveHeaders:  
+    flightsearch: 
       path: /flightsearch/**
       serviceId: flightsearch
 security:
+  user:
+    password: none
   basic:
     enabled: false
+  oauth2:
+    client:
+      clientId: myclient
+      clientSecret: password  
+management:
+  security:
+    enabled: false      

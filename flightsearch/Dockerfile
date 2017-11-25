@@ -1,6 +1,6 @@
 FROM java:8
 
-COPY ./target/flightsearch-1.2.4.RELEASE-spring-boot.jar /var/tmp/app.jar
+COPY ./target/flightsearch-0.0.1-SNAPSHOT-spring-boot.jar /var/tmp/app.jar
 
 EXPOSE 8180
 

@@ -189,7 +189,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.sabre.api.sacs.rest.Application</mainClass>
+							<mainClass>com.micromakers.FlightsearchApplication</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -211,7 +211,7 @@
 						<configuration>
 							<classifier>spring-boot</classifier>
 							<mainClass>
-								com.sabre.api.sacs.rest.Application
+								com.micromakers.FlightsearchApplication
 							</mainClass>
 						</configuration>
 					</execution>
