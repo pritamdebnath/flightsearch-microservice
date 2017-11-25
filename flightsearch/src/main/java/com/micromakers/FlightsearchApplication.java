@@ -17,8 +17,8 @@ import com.sabre.api.sacs.rest.Application;
 @SpringBootApplication
 @RestController
 @ComponentScan(basePackages= {"com.micromakers","com.sabre.api.sacs"})
-//@EnableEurekaClient
-//@EnableResourceServer
+@EnableEurekaClient
+@EnableResourceServer
 public class FlightsearchApplication {
 
     public static void main(String[] args) {
