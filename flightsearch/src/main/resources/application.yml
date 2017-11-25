@@ -10,5 +10,16 @@ eureka:
   instance:
     preferIpAddress: true
 security:
+  user:
+    password: none
   basic:
     enabled: false
+  oauth2:
+    client:
+      clientId: myclient
+      clientSecret: password  
+    resource:
+      tokenInfoUri: http://localhost:8030/oauth/check_token
+management:
+  security:
+    enabled: false      

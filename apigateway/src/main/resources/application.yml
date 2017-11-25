@@ -11,6 +11,9 @@ eureka:
     preferIpAddress: true
 zuul:
   routes:
+    uaa:
+      path: /uaa/**
+      serviceId: uaa
     flightsearch:
       path: /flightsearch/**
       serviceId: flightsearch
