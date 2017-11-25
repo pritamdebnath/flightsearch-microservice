@@ -19,7 +19,7 @@ security:
       clientId: myclient
       clientSecret: password  
     resource:
-      tokenInfoUri: http://localhost:8030/oauth/check_token
+      tokenInfoUri: http://localhost:8080/uaa/oauth/check_token
 management:
   security:
     enabled: false      
