@@ -3,8 +3,6 @@ package com.sabre.api.sacs.rest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sabre.api.sacs.config.SacsConfiguration;
@@ -26,13 +24,8 @@ public class LeadPriceCalendar {
 	private GenericRestGetCall<LeadPriceCalendarRequest> call;
 	final Logger LOG = LogManager.getLogger(LeadPriceCalendar.class);
 
-	@RequestMapping(value = "/lowAirfareSearch")
-	public LeadPriceCalendarResponse doCalendarPricing(SharedContext context,
-			@RequestParam(value = "origin") String origin, @RequestParam(value = "destination") String destination,
-			@RequestParam(value = "departureDate") String departureDate,
-			@RequestParam(value = "lengthOfStay") int lengthOfStay,
-			@RequestParam(value = "minfare", required = false) String minFare,
-			@RequestParam(value = "maxfare", required = false) String maxFare) {
+	public LeadPriceCalendarResponse doCalendarPricing(SharedContext context, String origin, String destination,
+			String departureDate, int lengthOfStay, String minFare, String maxFare) {
 		LeadPriceCalendarRequest request = new LeadPriceCalendarRequest.Builder().origin(origin)
 				.destination(destination).lengthOfStay(lengthOfStay).minFare(minFare).maxFare(maxFare)
 				.pointOfSaleCountry("US").build();
