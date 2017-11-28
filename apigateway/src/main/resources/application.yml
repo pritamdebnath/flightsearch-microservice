@@ -17,7 +17,7 @@ zuul:
       sensitiveHeaders:  
     flightsearch: 
       path: /flightsearch/**
-      serviceId: flightsearch
+      serviceId: flightsearch   
 security:
   user:
     password: none
@@ -29,4 +29,4 @@ security:
       clientSecret: password  
 management:
   security:
-    enabled: false      
+    enabled: false        
