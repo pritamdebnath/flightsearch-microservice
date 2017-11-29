@@ -4,22 +4,21 @@ services:
     image: eureka
     ports:
      - "8761:8761"
-  uaa:
-    image: uaa
-    depends_on:
-     - eureka
-    ports:
-     - "8030:8030"
   apigateway:
     image: apigateway
     depends_on:
      - eureka
     ports:
      - "8080:8080"
+  uaa:
+    image: uaa
+    depends_on:
+     - eureka
+    ports:
+     - "8030:8030"
   flightsearch:
     image: flightsearch
     depends_on:
      - eureka
-    ports:
-     - "8020:8020" 
+  
   
