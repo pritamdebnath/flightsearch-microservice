@@ -14,8 +14,6 @@ services:
     image: uaa
     depends_on:
      - eureka
-    ports:
-     - "8030:8030"
   flightsearch:
     image: flightsearch
     depends_on:
