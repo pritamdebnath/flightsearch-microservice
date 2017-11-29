@@ -6,9 +6,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    preferIpAddress: true
+      defaultZone: http://172.31.84.105:8761/eureka   
 security:
   user:
     password: none
@@ -19,7 +17,7 @@ security:
       clientId: myclient
       clientSecret: password  
     resource:
-      tokenInfoUri: http://localhost:8080/uaa/oauth/check_token
+      tokenInfoUri: http://172.31.84.105:8080/uaa/oauth/check_token
 management:
   security:
     enabled: false      
