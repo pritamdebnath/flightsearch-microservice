@@ -26,17 +26,17 @@ public class ScheduledPolling {
 	@Value("${hostname}")
 	private String hostname;
 	
-	@Scheduled(fixedDelay = 200)
+	@Scheduled(fixedRate = 200)
 	public void pollAndSendToGCM() {		
 		StringBuilder sb = new StringBuilder();
 		sb.append(hostname);
 		sb.append("/findall");
-		//Change following line to call from /findall	
 		Map<String,?> uriVariables = new HashMap<>();
 		List<User> users = (List<User>)(caller.exchange(sb.toString(),HttpMethod.GET, null, List.class,uriVariables));
 		for(User u : users) {
 			String notification = hobbies.get(u.getHobby());
-			// Send to GCM -- particular channel
+			// Send to GCM -- particular topic
+			
 		}
 	}
 	

@@ -9,8 +9,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableEurekaClient
 @EnableScheduling
 public class NotificationApplication {
-
+	
 	public static void main(String[] args) {
-		SpringApplication.run(NotificationApplication.class, args);
+		SpringApplication.run(NotificationApplication.class, args);		
 	}
 }
