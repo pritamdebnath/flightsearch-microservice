@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.micromakers.entity.CustomUserDetails;
@@ -62,6 +63,11 @@ public class UaaApplication {
 	@RequestMapping(value = "/save",method = RequestMethod.POST)
 	void save(@RequestBody User user) {
 		service.save(user);
+	}
+	
+	@RequestMapping(value = "/findByUsername")
+	User save(@RequestParam String username) {
+		return repository.findByUsername(username);
 	}
 
 }
