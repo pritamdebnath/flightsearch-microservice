@@ -17,6 +17,7 @@ public class User {
 	private Long id;
 	private String username;
 	private String password;
+	private String hobby;
 	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	private List<Role> roles;
 	
@@ -24,11 +25,11 @@ public class User {
 	public User(){
 		
 	}
-	public User(Long id, String username, String password, List<Role> roles) {
+	public User( String username, String password, String hobby,List<Role> roles) {
 		super();
-		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.hobby=hobby;
 		this.roles = roles;
 	}
 	public Long getId() {
@@ -54,5 +55,11 @@ public class User {
 	}
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+	public String getHobby() {
+		return hobby;
+	}
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
 	}
 }

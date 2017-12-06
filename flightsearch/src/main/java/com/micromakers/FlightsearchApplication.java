@@ -33,16 +33,6 @@ public class FlightsearchApplication {
 		SpringApplication.run(new Object[] { ConfigurationConfig.class, FlightsearchApplication.class }, args);
 	}
 
-	@RequestMapping("/test")
-	public String test() {
-		return "you are in flight search app";
-	}
-
-	@RequestMapping("/api/test")
-	public String test2(@RequestHeader HttpHeaders headers) {
-		return "protected ";
-	}
-
 	@RequestMapping(value = "/lowAirfareSearch")
 	public LeadPriceCalendarResponse lowAirfareSearch(@RequestParam(value = "origin") String origin,
 			@RequestParam(value = "destination") String destination,
