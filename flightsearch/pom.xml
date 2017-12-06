@@ -42,7 +42,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>compile</scope>			
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
@@ -194,12 +194,22 @@
 					</archive>
 				</configuration>
 			</plugin>
-			<!-- <plugin> <groupId>com.spotify</groupId> <artifactId>docker-maven-plugin</artifactId> 
-				<version>1.0.0</version> <configuration> <imageName>${docker.image.prefix}/${project.artifactId}</imageName> 
-				<dockerDirectory>src/main/dockerbuild</dockerDirectory> <resources> <resource> 
-				<targetPath>/</targetPath> <directory>${project.build.directory}</directory> 
-				<include>${project.build.finalName}.jar</include> </resource> </resources> 
-				</configuration> </plugin> -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<imageName>1.4.2/${project.artifactId}</imageName>
+					<dockerDirectory>src/main/dockerbuild</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
