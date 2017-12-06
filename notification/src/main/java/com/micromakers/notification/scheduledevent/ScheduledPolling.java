@@ -1,4 +1,4 @@
-package com.micromakers.scheduledevent;
+package com.micromakers.notification.scheduledevent;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +13,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.micromakers.notification.dto.AllUserResponse;
 import com.micromakers.notification.model.User;
 
 @Component
@@ -26,14 +27,19 @@ public class ScheduledPolling {
 	@Value("${hostname}")
 	private String hostname;
 	
-	@Scheduled(fixedRate = 200)
-	public void pollAndSendToGCM() {		
+	public ScheduledPolling(RestTemplate r) {
+		caller = r;
+	}
+	
+	//@Scheduled(fixedRate = 200)
+	public void pollAndSendToGCM() {	
+		System.out.println("Entered");
 		StringBuilder sb = new StringBuilder();
 		sb.append(hostname);
 		sb.append("/findall");
 		Map<String,?> uriVariables = new HashMap<>();
-		List<User> users = (List<User>)(caller.exchange(sb.toString(),HttpMethod.GET, null, List.class,uriVariables));
-		for(User u : users) {
+		AllUserResponse response = caller.getForObject("http://localhost:8030/findall",AllUserResponse.class,uriVariables);
+		for(User u : response.getUserList()) {
 			String notification = hobbies.get(u.getHobby());
 			// Send to GCM -- particular topic
 			

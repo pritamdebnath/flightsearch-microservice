@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.micromakers.dto.AllUserResponse;
 import com.micromakers.entity.CustomUserDetails;
 import com.micromakers.entity.Role;
 import com.micromakers.entity.User;
@@ -55,8 +56,11 @@ public class UaaApplication {
 	}
 
 	@RequestMapping(value = "/findall")
-	List<User> allUsers() {
-		return repository.findAll();
+	AllUserResponse allUsers() {
+		List<User> users = repository.findAll();
+		AllUserResponse response = new AllUserResponse();
+		response.getUserList().addAll(users);
+		return response;
 	}
 
 	@RequestMapping(value = "/save",method = RequestMethod.POST)
