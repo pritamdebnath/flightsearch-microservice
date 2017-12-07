@@ -48,11 +48,6 @@ public class UaaApplication {
 
 	@Autowired
 	public void authenticationManager(AuthenticationManagerBuilder builder) throws Exception {
-		if (repository.count() == 0) {
-			service.save(new User("user", "user", "music", new ArrayList<Role>()));
-			service.save(new User("pritam", "viv123", "football", new ArrayList<Role>()));
-			service.save(new User("lopa", "lopa123", "movies", new ArrayList<Role>()));
-		}
 		builder.userDetailsService(userDetailsService(repository)).passwordEncoder(passwordEncoder);
 	}
 
