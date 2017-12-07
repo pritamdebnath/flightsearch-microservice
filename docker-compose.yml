@@ -18,5 +18,7 @@ services:
     image: flightsearch
     depends_on:
      - eureka
+  notification:
+    image: notification   
   
   
