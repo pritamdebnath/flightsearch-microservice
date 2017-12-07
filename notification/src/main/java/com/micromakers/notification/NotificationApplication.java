@@ -22,12 +22,10 @@ public class NotificationApplication {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(NotificationApplication.class, args);	
-		ScheduledPolling b = new ScheduledPolling(caller());
-		b.pollAndSendToGCM();
 	}
 	
 	@Bean
-	public static RestTemplate caller() {
+	public RestTemplate caller() {
 		RestTemplate template = new RestTemplate();
 		template.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 		return template;

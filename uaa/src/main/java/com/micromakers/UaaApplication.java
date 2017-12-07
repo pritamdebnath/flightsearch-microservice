@@ -56,11 +56,11 @@ public class UaaApplication {
 	}
 
 	@RequestMapping(value = "/findall")
-	AllUserResponse allUsers() {
+	List<User> allUsers() {
 		List<User> users = repository.findAll();
-		AllUserResponse response = new AllUserResponse();
-		response.getUserList().addAll(users);
-		return response;
+//		AllUserResponse response = new AllUserResponse();
+//		response.getUserList().addAll(users);
+		return users;
 	}
 
 	@RequestMapping(value = "/save",method = RequestMethod.POST)
