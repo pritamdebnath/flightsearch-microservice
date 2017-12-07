@@ -44,7 +44,7 @@ public class NotificationScheduler {
 	@Scheduled(fixedRate = 50000)
 	public void reportCurrentTime() {
 		log.info("Pushing notifications now at " + dateFormat.format(new Date()));
-		User[] usersArray = restTemplate.getForObject("http://localhost:8080/uaa/findall", User[].class);
+		User[] usersArray = restTemplate.getForObject("http://172.31.84.105:8080/uaa/findall", User[].class);
 		send(usersArray);
 	}
 
