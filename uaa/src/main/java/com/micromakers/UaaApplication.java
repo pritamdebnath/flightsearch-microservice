@@ -7,14 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.micromakers.entity.CustomUserDetails;
@@ -55,16 +57,19 @@ public class UaaApplication {
 		builder.userDetailsService(userDetailsService(repository)).passwordEncoder(passwordEncoder);
 	}
 
+	@ResponseStatus(value = HttpStatus.OK)
 	@RequestMapping(value = "/findall")
 	List<User> allUsers() {
 		return repository.findAll();
 	}
 
+	@ResponseStatus(value = HttpStatus.OK)
 	@RequestMapping(value = "/save",method = RequestMethod.POST)
-	void save(@RequestBody User user) {
-		service.save(user);
+	User save(@RequestBody User user) {
+		return service.save(user);
 	}
 	
+	@ResponseStatus(value = HttpStatus.OK)
 	@RequestMapping(value = "/findByUsername")
 	User save(@RequestParam String username) {
 		return repository.findByUsername(username);
