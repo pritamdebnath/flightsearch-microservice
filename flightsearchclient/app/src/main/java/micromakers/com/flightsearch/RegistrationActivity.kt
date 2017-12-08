@@ -24,15 +24,20 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private inner class HttpRequestTask : AsyncTask<Void, Void,  User>() {
-        override fun doInBackground(vararg params: Void): User {
+        override fun doInBackground(vararg params: Void): User? {
             val restTemplate = RestTemplate()
             restTemplate.messageConverters.add(MappingJackson2HttpMessageConverter())
             val url = getString(R.string.aws_host) + "/uaa/save"
             val user = User(username.text.toString(), password.text.toString(), hobby.text.toString(), ArrayList<Role>())
-            return restTemplate.postForObject(url,user,User::class.java)
+            try {
+                 return restTemplate.postForObject(url, user, User::class.java)
+            }catch (t:Throwable){
+                t.printStackTrace()
+            }
+            return null
         }
 
-        override fun onPostExecute(user:  User) {
+        override fun onPostExecute(user:  User?) {
             if (user!=null) {
                 val nextIntent = Intent(this@RegistrationActivity, LoginActivity::class.java)
                 startActivity(nextIntent)

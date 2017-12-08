@@ -37,15 +37,17 @@ class LoginActivity : AppCompatActivity() {
         override fun doInBackground(vararg params: Void): Token? {
             val restTemplate = RestTemplate()
             restTemplate.messageConverters.add(MappingJackson2HttpMessageConverter())
-            FirebaseMessaging.getInstance().subscribeToTopic(restTemplate.getForObject(getString(R.string.aws_host)
-                    + "/uaa/findByUsername?username=" + userName.text, User::class.java).hobby)
-            val url = getString(R.string.aws_host) + "/uaa"
-            val client = OAuth2Client(userName.text.toString(), password.text.toString(), getString(R.string.client_id), getString(R.string.client_secret), url)
-            return try {
-                client.accessToken
+
+            try {
+                FirebaseMessaging.getInstance().subscribeToTopic(restTemplate.getForObject(getString(R.string.aws_host)
+                        + "/uaa/findByUsername?username=" + userName.text, User::class.java).hobby)
+                val url = getString(R.string.aws_host) + "/uaa"
+                val client = OAuth2Client(userName.text.toString(), password.text.toString(), getString(R.string.client_id), getString(R.string.client_secret), url)
+                return client.accessToken
             } catch (e: Throwable) {
-                null
+                e.printStackTrace()
             }
+            return null
         }
 
         override fun onPostExecute(accessToken: Token?) {

@@ -52,15 +52,17 @@ class FlightsearchActivity : AppCompatActivity() {
         override fun onPostExecute(flightSearchResponse: LeadPriceCalendarResponse?) {
             val df = SimpleDateFormat("dd-MM-yyyy HH:mm")
             searchResponse.setTextColor(Color.BLACK)
-            for (fareInfoResponse in flightSearchResponse!!.fareInfo) {
-                val row = "\n Departure:" + df.format(fareInfoResponse.departureDateTime)+
-                        "\n Return:" +  df.format(fareInfoResponse.returnDateTime) +
-                        "\n lowest fare: Airlines," + fareInfoResponse.lowestFare.airlineCodes[0] + " fare= " + fareInfoResponse
-                        .lowestFare.fare + fareInfoResponse.currencyCode +
-                        "\n lowest nonstop fare:  Airlines," + fareInfoResponse.lowestNonStopFare.airlineCodes[0] + " \nfare=" +
-                        fareInfoResponse.lowestNonStopFare.fare + fareInfoResponse.currencyCode
-                searchResponse.append(row)
-                searchResponse.append("\n\n\n\n")
+            if (flightSearchResponse != null) {
+                for (fareInfoResponse in flightSearchResponse!!.fareInfo) {
+                    val row = "\n Departure:" + df.format(fareInfoResponse.departureDateTime) +
+                            "\n Return:" + df.format(fareInfoResponse.returnDateTime) +
+                            "\n lowest fare: Airlines," + fareInfoResponse.lowestFare.airlineCodes[0] + " fare= " + fareInfoResponse
+                            .lowestFare.fare + fareInfoResponse.currencyCode +
+                            "\n lowest nonstop fare:  Airlines," + fareInfoResponse.lowestNonStopFare.airlineCodes[0] + " \nfare=" +
+                            fareInfoResponse.lowestNonStopFare.fare + fareInfoResponse.currencyCode
+                    searchResponse.append(row)
+                    searchResponse.append("\n\n\n\n")
+                }
             }
         }
     }
