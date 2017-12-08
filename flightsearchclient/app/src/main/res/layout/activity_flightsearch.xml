@@ -4,84 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="micromakers.com.flightsearch.FlightsearchActivity">
+    tools:context=".FlightsearchActivity">
 
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="173dp"
-        android:layout_height="42dp"
+        android:id="@+id/origin"
+        android:layout_width="170dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="39dp"
         android:ems="10"
+        android:hint="origin"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="19dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@+id/depDate"
+        app:layout_constraintEnd_toStartOf="@+id/destination"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="174dp"
-        android:layout_height="41dp"
+        android:id="@+id/destination"
+        android:layout_width="170dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="39dp"
         android:ems="10"
+        android:hint="destination"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="195dp"
-        tools:layout_editor_absoluteY="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-
-    <TableRow
-        android:layout_width="372dp"
-        android:layout_height="333dp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="162dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@+id/depDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/origin"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText3"
-        android:layout_width="174dp"
-        android:layout_height="46dp"
+        android:id="@+id/depDate"
+        android:layout_width="170dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="21dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="departure date"
         android:inputType="date"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="61dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@+id/searchButton"
+        app:layout_constraintEnd_toStartOf="@+id/arrDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/origin" />
 
     <EditText
-        android:id="@+id/editText4"
-        android:layout_width="174dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/arrDate"
+        android:layout_width="170dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="21dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="arrival date"
         android:inputType="date"
-        tools:layout_editor_absoluteX="195dp"
-        tools:layout_editor_absoluteY="61dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@+id/searchButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/depDate"
+        app:layout_constraintTop_toBottomOf="@+id/destination" />
 
     <Button
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="309dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
         android:text="SEARCH"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="107dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/searchResponse"
+        android:layout_width="369dp"
+        android:layout_height="291dp"
+        android:layout_marginBottom="9dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchButton" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">flightsearchclient</string>
-    <string name="aws_host">http://192.168.1.3:8080</string>
+    <string name="aws_host">http://34.237.22.125:8080</string>
     <string name="client_id">myclient</string>
     <string name="client_secret">password</string>
 </resources>
