@@ -62,7 +62,7 @@ public class NotificationScheduler {
 				 
 				JSONObject notification = new JSONObject();
 				notification.put("title", "Hi "+user.getUsername()+", "+hobbies.get(user.getHobby()));
-				notification.put("title", "Hi "+user.getUsername()+", "+hobbies.get(user.getHobby()));
+				notification.put("body", "Hi "+user.getUsername()+", "+hobbies.get(user.getHobby()));
 				body.put("notification", notification);
 			
 			} catch (JSONException e) {
