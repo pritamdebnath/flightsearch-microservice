@@ -20,5 +20,7 @@ services:
      - eureka
   notification:
     image: notification   
+    depends_on:
+     - uaa
   
   
